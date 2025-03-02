@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: ms-search
+  datasource:
+    url: jdbc:mysql://localhost:3306/ipsum_db
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: pass
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  elasticsearch:
+    uris: ${ELASTICSEARCH_HOST:ipsum-cluster-2054425092.us-east-1.bonsaisearch.net}
+    username: ${ELASTICSEARCH_USER:icry28062b}
+    password: ${ELASTICSEARCH_PWD:rwpzk91xqf}
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
+  instance:
+    prefer-ip-address: false
+    hostname: ms-search
+server:
+  port: 8088
+logging:
+  level:
+    tracer: TRACE
